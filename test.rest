@@ -1,0 +1,62 @@
+@baseUrl = http://localhost:1313
+
+# Créer un nouvel utilisateur
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+  "username": "newuser",
+  "password": "password123",
+  "email": "newuser@example.com"
+}
+###
+# Se connecter pour obtenir l'ID de l'utilisateur
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "newuser@example.com",
+  "password": "password123"
+}
+
+
+
+###
+# Mettre à jour le nom d'utilisateur en utilisant l'ID obtenu
+PUT {{baseUrl}}/updateUser/1
+Content-Type: application/json
+
+{
+  "newUsername": "updatedUsername"
+}
+
+###
+
+POST {{baseUrl}}/forgot-password
+Content-Type: application/json
+
+{
+    "email": "xrengargod@gmail.com"
+}
+
+###
+
+POST {{baseUrl}}/reset-password
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InhyZW5nYXJnb2RAZ21haWwuY29tIiwiaWF0IjoxNzAxMjA0MzQ3LCJleHAiOjE3MDEyMDc5NDd9.7jVrQ9WW7Yj-fyXkFIpCrytaUoW2MGNNdqzjYl2kgTI"
+}
+
+
+
+
+###
+
+POST http://localhost:1313/reset-password?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InhyZW5nYXJnb2RAZ21haWwuY29tIiwiaWF0IjoxNzAxMjA2NjMyLCJleHAiOjE3MDEyMTAyMzJ9.2uss2zHbGEgGDTrMhqCP-m6sMpPsyFsA2kh1eBZ6_Bk
+
+Content-Type: application/json
+
+{}
+
+
